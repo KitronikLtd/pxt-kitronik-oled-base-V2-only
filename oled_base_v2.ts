@@ -3,6 +3,28 @@
 ////////////////////////////////
 
 namespace kitronik_OLED_V2 {
+    /**
+     * Select the alignment of text
+     */
+    export enum ShowAlign {
+        //% block="Left"
+        Left,
+        //% block="Centre"
+        Centre,
+        //% block="Right"
+        Right
+    }
+
+    /**
+     * Select direction for drawing lines
+     */
+    export enum LineDirectionSelection {
+        //% block="horizontal"
+        horizontal,
+        //% block="vertical"
+        vertical
+    }
+    
     // ASCII Code to OLED 5x8 pixel character for display conversion
     // font[0 - 31] are non-printable
     // font[32 - 127]: SPACE ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ DEL
@@ -108,7 +130,7 @@ namespace kitronik_OLED_V2 {
             writeTwoByte(0xD6, 0)           // Zoom is set to off
             writeOneByte(0xAF)              // SSD1306_DISPLAYON
             initialised = 1
-            clear()
+            clear_Base()
         }
     }
 
