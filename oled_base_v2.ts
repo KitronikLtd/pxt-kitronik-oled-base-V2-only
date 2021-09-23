@@ -284,7 +284,7 @@ namespace kitronik_OLED_V2 {
         //pageBuf[0] = 0x40
         //pins.i2cWriteBuffer(displayAddress, pageBuf)       // Send data to the screen
 
-        show_Base("                          ", line) // Write 26 spaces to the selected line to clear it
+        show_Base("                          ", line, ShowAlign.Left) // Write 26 spaces to the selected line to clear it
     }
 
     // Draw a line of a specific length in pixels, using the (x, y) coordinates as a starting point.
