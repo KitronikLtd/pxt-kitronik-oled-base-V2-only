@@ -24,7 +24,7 @@ namespace kitronik_OLED_V2 {
         //% block="vertical"
         vertical
     }
-    
+
     // ASCII Code to OLED 5x8 pixel character for display conversion
     // font[0 - 31] are non-printable
     // font[32 - 127]: SPACE ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ DEL
@@ -277,14 +277,14 @@ namespace kitronik_OLED_V2 {
         let x = 0
 
         // Subtract '1' from the line number to return correct y value
-        y = (line - 1)
+        //y = (line - 1)
+        // This method is not quite working properly - the line clears but the content is still held in screen buffer so comes back if the display is refreshed
+        //set_pos(0, y)                               // Set the start position to write to (page addressing mode)
+        //pageBuf.fill(0)
+        //pageBuf[0] = 0x40
+        //pins.i2cWriteBuffer(displayAddress, pageBuf)       // Send data to the screen
 
-        set_pos(0, y)                               // Set the start position to write to (page addressing mode)
-        pageBuf.fill(0)
-        pageBuf[0] = 0x40
-        pins.i2cWriteBuffer(displayAddress, pageBuf)       // Send data to the screen
-
-        //show("                          ", line) // Write 26 spaces to the selected line to clear it
+        show("                          ", line) // Write 26 spaces to the selected line to clear it
     }
 
     // Draw a line of a specific length in pixels, using the (x, y) coordinates as a starting point.
